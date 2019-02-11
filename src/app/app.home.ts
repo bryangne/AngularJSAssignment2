@@ -8,9 +8,8 @@ import { CryptoCurrencyType, coinList } from './CryptoModel';
                 <ul>
                     <li *ngFor="let crcy of currencyArray">
                     <a routerLink="/detail/{{crcy.symbol}}" routerLinkActive="active">{{crcy.name}}</a>
-                    {{crcy.name}}
-                    {{crcy.symbol}}   
-                    {{ crcy.price  }}
+                    {{crcy.symbol}}
+                    \${{ crcy.price  }}
                     </li>
                 </ul>`,
 
@@ -47,7 +46,7 @@ export class HomeComponent {
                 // Log the data in the console to see what it looks like.
                 // Be sure to use the debugger.
                 console.log(JSON.stringify(data));
-
+                
                 // Set the price for each item.
                 for(var i=0; i<this.currencyArray.length; i++) {
 

@@ -1,26 +1,23 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 @Component({
     selector: 'app-root',
     template: `
-            {{doSomething()}}
-            <h2>Header</h2>
-            <a routerLink="/home" routerLinkActive="active">Home</a>
+            <br>
+            <app-menu></app-menu> Welcome {{ getName() }}
 
             <!-- Where router should display a view -->
             <router-outlet></router-outlet>
-        
-            <h3>Footer</h3>
+            <app-menu></app-menu> Uses https://www.cryptocompare.com/api/
              `,
 })
-export class AppComponent {
-    constructor() {
+export class AppComponent implements OnInit {
 
+    ngOnInit() {
+        // this.name = sessionStorage.getItem('name');
     }
-
-    doSomething() {
-        return 'this might be a good place to '
-        + 'read from session storage!';
+    getName() {
+        return (sessionStorage.getItem('name'));
     }
 }
 

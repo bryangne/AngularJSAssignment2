@@ -18,7 +18,7 @@ export class MyCurrencyService {  //for BTC
     // Notice how BTC is hard-coded in the URL below. Hint: We might need a parameter 
     // which can be used to dynamically adjust the URL. 
     getCurrencyDetail(): Observable<string[]> {
-        let url = "https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&limit=1"
+        let url = "https://min-api.cryptocompare.com/data/histoday?fsym=LTC&tsym=USD&limit=1"
         let FINAL_TIME = 1;
         return this.http.get(url)
         .pipe(map(this.extractData),
