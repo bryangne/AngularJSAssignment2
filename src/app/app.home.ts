@@ -10,6 +10,7 @@ import { CryptoCurrencyType, coinList } from './CryptoModel';
                     <a routerLink="/detail/{{crcy.symbol}}" routerLinkActive="active">{{crcy.name}}</a>
                     {{crcy.symbol}}
                     \${{ crcy.price  }}
+                    <app-arrows [symbol]='crcy.symbol'></app-arrows>
                     </li>
                 </ul>`,
 
@@ -45,8 +46,7 @@ export class HomeComponent {
 
                 // Log the data in the console to see what it looks like.
                 // Be sure to use the debugger.
-                console.log(JSON.stringify(data));
-                
+                // console.log(JSON.stringify(data));
                 // Set the price for each item.
                 for(var i=0; i<this.currencyArray.length; i++) {
 
@@ -54,7 +54,9 @@ export class HomeComponent {
                     let currentSymbol = this.currencyArray[i].symbol;
                     let idx           = this.getCoinArrayIndex(currentSymbol);
                     this.currencyArray[idx].price = data[currentSymbol].USD;
-                }     
+
+                    sessionStorage.setItem(currentSymbol, this.currencyArray[idx].price.toString());
+                }
             },
             // 2. Handle error.
             error => {

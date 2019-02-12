@@ -10,10 +10,10 @@ import { AboutComponent } from './about/about.component';
 import { MenuComponent } from './app.menu';
 import { NameDirective } from './name.directive';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ArrowComponent } from './app.arrows';
 @NgModule({
   declarations: [
-    AppComponent, DetailComponent, HomeComponent, AboutComponent, MenuComponent, NameDirective
+    AppComponent, DetailComponent, HomeComponent, AboutComponent, MenuComponent, NameDirective, ArrowComponent
   ],
   imports: [
     BrowserModule, HttpModule, routing, FormsModule, HttpClientModule
